@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  include Transactionable::BalancedCustomer
+  acts_as_credit_card_transactionable
 end
