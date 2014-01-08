@@ -1,3 +1,5 @@
+require 'balanced'
+
 module Transactionable
   class Engine < ::Rails::Engine
     isolate_namespace Transactionable

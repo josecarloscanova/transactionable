@@ -31,7 +31,7 @@ module Transactionable
     end
 
     def remote_entity_type
-      "#{self.class.name.gsub("Remote","")}"
+      "#{self.class.name.gsub("Transactionable::Remote","")}"
     end
 
     def destroy_remote
