@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108190511) do
+ActiveRecord::Schema.define(version: 20140108213120) do
+
+  create_table "transactionable_bank_accounts", force: true do |t|
+    t.integer  "bank_accountable_id"
+    t.string   "bank_accountable_type"
+    t.string   "account_number"
+    t.string   "name"
+    t.string   "bank_name"
+    t.string   "description"
+    t.string   "account_type"
+    t.boolean  "can_debit"
+    t.boolean  "verified"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "transactionable_credit_cards", force: true do |t|
     t.integer  "credit_cardable_id"
