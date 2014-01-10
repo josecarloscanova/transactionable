@@ -59,7 +59,7 @@ In order to be able to capture a customers credit card credentials, you must set
 
     <% content_for :head do %>
       <%= javascript_include_tag "https://js.balancedpayments.com/v1/balanced.js" %>
-      <%= javascript_include_tag "add_credit_card.js" %>
+      <%= javascript_include_tag "transactionable/add_credit_card.js" %>
     <% end %>
     
     <%= form_tag add_credit_card_path, class: "cc-info-form" do %>
@@ -127,7 +127,7 @@ In order to be able to capture a customers bank account credentials, you must se
 
     <% content_for :head do %>
       <%= javascript_include_tag "https://js.balancedpayments.com/v1/balanced.js" %>
-      <%= javascript_include_tag "add_bank_account.js" %>
+      <%= javascript_include_tag "transactionable/add_bank_account.js" %>
     <% end %>
 
     <%= form_tag add_bank_account_path, class: "acct-info-form" do %>
