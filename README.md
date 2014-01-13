@@ -15,7 +15,7 @@ Setup
 -----
 In your Gemfile:
 
-    gem 'transactionable', '~> 0.0.1.pre'
+    gem 'transactionable', '~> 0.1'
 
 In your app root:
 
@@ -192,6 +192,3 @@ The `one_bank_account?` method acts in the same manner for bank accounts.
         true
       end
     end
-
-Login: transactionable-test@transactionable.com
-PW: password123
