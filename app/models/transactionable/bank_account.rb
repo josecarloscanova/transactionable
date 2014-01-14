@@ -6,6 +6,8 @@ module Transactionable
     has_many :credits, as: :transactionable
     has_many :reversals, as: :transactionable
 
+    TYPES = ["checking", "savings"]
+
     def remote
       if remote_bank_account && remote_bank_account.synced?
         remote_bank_account.fetch

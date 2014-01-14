@@ -1,0 +1,9 @@
+Description:
+    Writes basic credit card and bank account form partials to app/views
+
+Example:
+    rails generate transactionable:views
+
+    This will create:
+        app/views/transactionable/shared/_bank_account_form.html.erb
+        app/views/transactionable/shared/_credit_card_form.html.erb

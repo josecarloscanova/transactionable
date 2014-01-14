@@ -1,0 +1,32 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "https://js.balancedpayments.com/v1/balanced.js" %>
+  <%= javascript_include_tag "transactionable/add_credit_card.js" %>
+<% end %>
+
+<% javascript_tag do %>
+  $(document).ready(function() {
+    var marketplaceUri = "#{Balanced::Marketplace.my_marketplace.uri}";
+    balanced.init(marketplaceUri);
+  });
+<% end %>
+
+<%= form_for :credit_card_info, url: action, html: { class: "cc-info-form" } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "cc-name" %>
+  
+  <%= f.label :card_number, "Credit Card Number" %>
+  <%= f.text_field :card_number, class: "cc-number" %>
+  
+  <%= f.label :expiration_date, "Expiration Date" %>
+  <%= f.text_field :expiration_date, class: "cc-exp-date", placeholder: "MM/YYYY" %>
+  
+  <%= f.label :security_code %>
+  <%= f.text_field :security_code, class: "cc-csc" %>
+
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code, class: "cc-postal-code" %>
+
+  <%= f.hidden_field :balanced_uri, class: "cc-balanced-uri" %>
+
+  <%= f.submit "Submit Credit Card Information", class: "submit-cc-info" %>
+<% end %>

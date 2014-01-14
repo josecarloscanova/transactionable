@@ -1,10 +1,10 @@
 PATH
   remote: .
   specs:
-    transactionable (0.0.1.pre)
+    transactionable (0.1.0)
       balanced (~> 0.7)
       jquery-rails
-      rails (~> 4.0)
+      rails (> 3.1)
 
 GEM
   remote: https://rubygems.org/
@@ -49,7 +49,7 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
-    faraday (0.8.8)
+    faraday (0.8.9)
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
