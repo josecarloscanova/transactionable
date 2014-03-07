@@ -10,6 +10,10 @@ module Transactionable
       def acts_as_bank_account_transactionable(options = {})
         include Transactionable::BankAccountTransactionable
       end
+
+      def acts_as_transaction_loggable(options = {})
+        include Transactionable::TransactionLoggable
+      end
     end
   end
 end

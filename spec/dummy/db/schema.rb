@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108213120) do
+ActiveRecord::Schema.define(version: 20140307200730) do
 
   create_table "transactionable_bank_accounts", force: true do |t|
     t.integer  "bank_accountable_id"
@@ -52,14 +52,20 @@ ActiveRecord::Schema.define(version: 20140108213120) do
     t.datetime "updated_at"
   end
 
+  create_table "transactionable_transaction_logs", force: true do |t|
+    t.integer  "transaction_id"
+    t.integer  "transaction_loggable_id"
+    t.string   "transaction_loggable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "transactionable_transactions", force: true do |t|
     t.integer  "transactionable_id"
     t.string   "transactionable_type"
-    t.integer  "transaction_loggable_id"
-    t.string   "transaction_loggable_type"
     t.integer  "credit_id"
     t.integer  "debit_id"
-    t.decimal  "amount",                    precision: 8, scale: 2
+    t.decimal  "amount",               precision: 8, scale: 2
     t.string   "status"
     t.string   "description"
     t.string   "type"

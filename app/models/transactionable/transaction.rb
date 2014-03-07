@@ -2,7 +2,7 @@ module Transactionable
   class Transaction < ActiveRecord::Base
     has_one :remote_transaction, as: :local_entity, dependent: :destroy
     belongs_to :transactionable, polymorphic: true
-    belongs_to :transaction_loggable, polymorphic: true
+    has_many :transaction_logs
 
     TRANSACTION_TYPES = [:hold, :credit, :debit, :refund, :reversal]
 

@@ -16,12 +16,14 @@ describe "Transactionable::CreditCard" do
       @credit_card = @user.credit_cards.first
       @credit_card.debit!(13.37)
       @transaction = @credit_card.transactions.first
+      @user.log_transaction(@transaction)
       @remote_transaction = @transaction.remote
     end
 
     specify { @credit_card.debits.should_not be_blank }
     specify { @credit_card.debits.first.should eql @transaction }
     specify { @transaction.should be_instance_of Transactionable::Debit }
+    specify { @user.transactions.should include(@transaction) }
     specify { @remote_transaction.should be_instance_of Balanced::Debit }
     specify { (@transaction.amount*100).should eql @remote_transaction.amount }
   end

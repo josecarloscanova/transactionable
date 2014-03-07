@@ -211,6 +211,25 @@ class CompaniesController < ApplicationController
 end
 ```
 
+Logging
+---------------------
+
+To enable transaction logging for an object:
+
+```ruby
+class Customer < ActiveRecord::Base
+  acts_as_transaction_loggable
+end
+```
+
+To log a transaction:
+
+```ruby
+customer = Customer.first
+transaction = customer.credit_card.debit!(amount).last
+customer.log_transaction(transaction)
+```
+
 Configuration Options
 ---------------------
 
