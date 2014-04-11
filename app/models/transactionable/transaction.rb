@@ -12,7 +12,7 @@ module Transactionable
         status: remote_trans.status,
         description: remote_trans.description
       )
-      RemoteTransaction.create(local_entity: transaction, uri: remote_trans.uri)
+      Transactionable::RemoteTransaction.create(local_entity: transaction, uri: remote_trans.uri)
       transaction
     end
 

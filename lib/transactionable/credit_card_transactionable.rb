@@ -9,7 +9,7 @@ module Transactionable
       def add_credit_card(balanced_uri, credit_card = {})
         self.credit_cards.destroy_all if one_card?
         credit_card = self.credit_cards.create
-        remote_card = RemoteCreditCard.create(uri: balanced_uri, local_entity: credit_card)
+        remote_card = Transactionable::RemoteCreditCard.create(uri: balanced_uri, local_entity: credit_card)
         credit_card.reload.sync
         sync_customer
         self.reload.remote.add_card(balanced_uri)

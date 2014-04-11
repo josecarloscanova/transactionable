@@ -26,7 +26,7 @@ module Transactionable
 
     def credit!(amount)
       remote_credit = remote.credit(amount: amount_in_cents(amount))
-      transaction = Credit.create_from_remote(remote_credit)
+      transaction = Transactionable::Credit.create_from_remote(remote_credit)
       credits << transaction
     end
 

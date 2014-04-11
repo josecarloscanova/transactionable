@@ -5,7 +5,7 @@ module Transactionable
     def refund!(refund_amount = nil)
       ensure_valid_refund(refund_amount)
       remote_refund = refund_amount ? remote.refund(amount: amount_in_cents(refund_amount)) : remote.refund
-      transaction = Refund.create_from_remote(remote_refund)
+      transaction = Transactionable::Refund.create_from_remote(remote_refund)
       refunds << transaction
       transactionable.transactions << transaction
     end
