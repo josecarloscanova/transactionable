@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    transactionable (0.3.0)
+    transactionable (0.3.1)
       balanced (~> 0.7)
       jquery-rails
       rails (> 3.1)
