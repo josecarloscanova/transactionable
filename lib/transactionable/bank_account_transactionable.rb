@@ -9,7 +9,7 @@ module Transactionable
       def add_bank_account(balanced_uri)
         bank_accounts.destroy_all if one_bank_account?
         bank_account = bank_accounts.create
-        remote_account = RemoteBankAccount.create(uri: balanced_uri, local_entity: bank_account)
+        remote_account = Transactionable::RemoteBankAccount.create(uri: balanced_uri, local_entity: bank_account)
         bank_account.reload.sync
         sync_customer
         self.reload.remote.add_bank_account(balanced_uri)

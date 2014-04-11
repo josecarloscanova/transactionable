@@ -16,7 +16,7 @@ module Transactionable
       # TODO: Consider whether to assume that this method takes
       # decimal/float dollar values
       remote_debit = remote.debit(amount: amount_in_cents(amount))
-      transaction = Debit.create_from_remote(remote_debit)
+      transaction = Transactionable::Debit.create_from_remote(remote_debit)
       debits << transaction
     end
 

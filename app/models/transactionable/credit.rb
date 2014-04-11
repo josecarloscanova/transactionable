@@ -5,7 +5,7 @@ module Transactionable
     def reverse!(reversal_amount = nil)
       ensure_valid_reversal(reversal_amount)
       remote_reversal = reversal_amount ? remote.reverse(amount: amount_in_cents(reversal_amount)) : remote.reverse
-      transaction = Reversal.create_from_remote(remote_reversal)
+      transaction = Transactionable::Reversal.create_from_remote(remote_reversal)
       reversals << transaction
       transactionable.transactions << transaction
     end
