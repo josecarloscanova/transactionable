@@ -1,4 +1,4 @@
-$(document).ready(function() {
+add_credit_card = function(e) {
   var ccNumberField = $(".cc-number");
   var ccSecurityCodeField = $(".cc-csc");
   var ccExpirationDateField = $(".cc-exp-date");
@@ -31,8 +31,7 @@ $(document).ready(function() {
         balancedUriField.val(response.data.uri);
         ccNumberField.val(response.data.brand + ' (' + response.data.last_four + ')');
         ccSecurityCodeField.val(null);
-        submitButton.unbind('click');
-        submitButton.click();
+        $form.submit();
         break;
       default:
         alert("There was an error with the credit card information you supplied. Please verify that all fields are correct and try again.");
@@ -74,14 +73,13 @@ $(document).ready(function() {
   }
 
   if ($form.length > 0 && balancedUriField.val() == "") {
-    submitButton.click(function(e) {
-      e.preventDefault();
-
-      var ccData = composeCCData();
-      console.log(ccData);
-
-      balanced.card.create(ccData, callbackHandler);
-    });
+    e.preventDefault();
+    var ccData = composeCCData();
+    console.log(ccData);
+    balanced.card.create(ccData, callbackHandler);
   }
+}
 
+$(document).ready(function() {
+  $("body").on('click', ".submit-cc-info", add_credit_card);
 });
